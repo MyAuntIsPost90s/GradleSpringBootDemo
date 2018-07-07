@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="demo.dao.GoodsActiveMapper" >
+  <select id="getList" resultType="demo.model.GoodsActive" parameterType="demo.model.GoodsActive" >
+    select * from mall_goods_active
+    where 1=1
+    <if test="id != null" >
+      and id = #{id}
+    </if>
+    <if test="name != null" >
+      and name = #{name}
+    </if>
+    <if test="status != null" >
+      and status = #{status}
+    </if>
+    <if test="createUserId != null" >
+      and create_user_id = #{createUserId}
+    </if>
+    <if test="createTime != null" >
+      and create_time = #{createTime}
+    </if>
+    <if test="updateUserId != null" >
+      and update_user_id = #{updateUserId}
+    </if>
+    <if test="updateTime != null" >
+      and update_time = #{updateTime}
+    </if>
+  </select>
+  
+  <select id="getSingle" resultType="demo.model.GoodsActive" >
+    select * from mall_goods_active
+    where id = #{id}
+    limit 0,1
+  </select>
+  
+  <insert id="insert" parameterType="demo.model.GoodsActive" >
+    insert into mall_goods_active
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time
+      </if>
+    </trim>
+    <trim prefix="values(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime}
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="update" parameterType="demo.model.GoodsActive" >
+    update mall_goods_active
+    <set >
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="status != null" >
+        status = #{status},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime}
+      </if>
+    </set>
+    where
+    id = #{id}
+  </update>
+  
+  <delete id="batchDelete" >
+    delete from mall_goods_active
+    where id in(
+    <foreach item="item" collection="list" separator="," >
+      #{item}
+    </foreach>
+    )
+  </delete>
+  
+  <select id="getListWithPage" resultType="demo.model.GoodsActive" parameterType="demo.model.GoodsActive" >
+    select * from mall_goods_active
+    where 1=1
+    <if test="id != null" >
+      and id = #{id}
+    </if>
+    <if test="name != null" >
+      and name = #{name}
+    </if>
+    <if test="status != null" >
+      and status = #{status}
+    </if>
+    <if test="createUserId != null" >
+      and create_user_id = #{createUserId}
+    </if>
+    <if test="createTime != null" >
+      and create_time = #{createTime}
+    </if>
+    <if test="updateUserId != null" >
+      and update_user_id = #{updateUserId}
+    </if>
+    <if test="updateTime != null" >
+      and update_time = #{updateTime}
+    </if>
+  </select>
+  
+  <select id="count" resultType="java.lang.Long" parameterType="demo.model.GoodsActive" >
+    select count(*) from mall_goods_active
+    where 1=1
+    <if test="id != null" >
+      and id = #{id}
+    </if>
+    <if test="name != null" >
+      and name = #{name}
+    </if>
+    <if test="status != null" >
+      and status = #{status}
+    </if>
+    <if test="createUserId != null" >
+      and create_user_id = #{createUserId}
+    </if>
+    <if test="createTime != null" >
+      and create_time = #{createTime}
+    </if>
+    <if test="updateUserId != null" >
+      and update_user_id = #{updateUserId}
+    </if>
+    <if test="updateTime != null" >
+      and update_time = #{updateTime}
+    </if>
+  </select>
+  
+</mapper>
